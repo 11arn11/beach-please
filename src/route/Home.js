@@ -3,7 +3,8 @@ import { Link } from '@reach/router';
 
 class Home extends Component {
   render() {
-    const { user } = this.props;
+
+    //const { user } = this.props;
 
     const biggerLead = {
       fontSize: 1.4 + 'em',
@@ -26,27 +27,10 @@ class Home extends Component {
               Con questa app potrai cercare tornei, campionati, gare o competizioni di Beach Volley.
             </p>
 
-            {user == null && (
-              <span>
-                <Link
-                  to="/register"
-                  className="btn btn-outline-primary mr-2"
-                >
-                  Register
-                </Link>
-                <Link
-                  to="/login"
-                  className="btn btn-outline-primary mr-2"
-                >
-                  Log In
-                </Link>
-              </span>
-            )}
-            {user && (
-              <Link to="/competitions" className="btn btn-primary">
-                Cerca
-              </Link>
-            )}
+            <Link to="/competitions" className="btn btn-primary">
+              Cerca un torneo
+            </Link>
+
           </div>{' '}
           {/* columns */}
         </div>
