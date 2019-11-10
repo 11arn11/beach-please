@@ -45,16 +45,40 @@ class Competitions extends Component {
     });
   }
 
+  filter() {
+
+    if (!this.props.competitions) return [];
+
+    let items;
+
+    items = this.props.competitions.filter(item => {
+
+      // item.competitionName.toLowerCase().match(this.state.competitionName.toLowerCase()) && true);
+
+      if (! (item.competitionName.toLowerCase().match(this.state.competitionName.toLowerCase()) && true)){
+        return false;
+      }
+
+      if (this.state.competitionType && this.state.competitionType !== item.competitionType){
+        return false;
+      }
+
+      if (this.state.competitionDate && this.state.competitionDate !== item.competitionDate){
+        return false;
+      }
+
+      return true;
+
+    });
+
+    return items;
+
+  }
+
   render() {
 
-    const dataFilter = item => 
-      item.competitionName.toLowerCase().match(this.state.competitionName.toLowerCase()) && true;
-
-    /*
-    const filteredCompetitions = this.state.displayCompetitions.filter(dataFilter)
-    */
-
-    const filteredCompetitions = this.props.competitions ? this.props.competitions.filter(dataFilter) : [];
+    // Filter by name
+    const filteredCompetitions = this.filter()
 
     
     return (
@@ -82,7 +106,7 @@ class Competitions extends Component {
                       type="text"
                       id="competitionName"
                       name="competitionName"
-                      placeholder="Name"
+                      placeholder="Cerca per nome"
                       value={this.state.competitionName}
                       onChange={this.handleChange}
                     />
@@ -102,7 +126,7 @@ class Competitions extends Component {
                       value={this.state.competitionType}
                       onChange={this.handleChange}
                     >
-                      <option value="">vs</option>
+                      <option value="">giocatori</option>
                       <option value="2vs2">2vs2</option>
                       <option value="3vs3">3vs3</option>
                       <option value="4vs4">4vs4</option>
