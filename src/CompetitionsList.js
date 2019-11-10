@@ -28,7 +28,7 @@ class CompetitionsList extends Component {
               title="Check In"
               onClick={() =>
                 navigate(
-                  `/checkin/${this.props.userID}/${item.competitionID}`
+                  `/competitions/${item.competitionID}`
                 )
               }
             >

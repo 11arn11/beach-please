@@ -97,10 +97,6 @@ class App extends Component {
       });
   };
 
-  addCompetition = (data) => {
-    CompetitionModel.add(data);
-  };
-
   render() {
     return (
       <div>

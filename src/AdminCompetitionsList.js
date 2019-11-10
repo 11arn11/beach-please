@@ -22,21 +22,21 @@ class AdminCompetitionsList extends Component {
           <section
             className="btn-group align-self-center"
             role="group"
-            aria-label="Meeting Options"
+            aria-label="Competitions Options"
           >
             <button
               className="btn btn-sm btn-outline-secondary"
-              title="Delete Meeting"
+              title="Delete Competition"
               onClick={e => this.deleteItem(e, item.competitionID)}
             >
               <GoTrashcan />
             </button>
             <button
               className="btn btn-sm btn-outline-secondary"
-              title="Check In"
+              title="Subscribe"
               onClick={() =>
                 navigate(
-                  `/checkin/${this.props.userID}/${item.competitionID}`
+                  `/competition/${item.competitionID}/subscribe`
                 )
               }
             >
@@ -44,10 +44,10 @@ class AdminCompetitionsList extends Component {
             </button>
             <button
               className="btn btn-sm btn-outline-secondary"
-              title="Attendees List"
+              title="Goto competition"
               onClick={() =>
                 navigate(
-                  `/attendees/${this.props.userID}/${item.competitionID}`
+                  `/competition/${item.competitionID}`
                 )
               }
             >
@@ -57,7 +57,10 @@ class AdminCompetitionsList extends Component {
 
           <section className="pl-3 text-left align-self-center">
             <div>
-            {item.competitionName} - {item.competitionType} - {item.competitionDate}
+              {item.competitionDate} - {item.competitionType}
+            </div>
+            <div>
+              {item.competitionName}
             </div>
           </section>
         </div>

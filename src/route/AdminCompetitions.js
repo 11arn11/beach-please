@@ -40,14 +40,14 @@ class AdminCompetitions extends Component {
       <div className="container mt-4">
         <div className="row justify-content-center">
           <div className="col-md-8 text-center">
-            <h1 className="font-weight-light">Add a Competition</h1>
+            <h1 className="font-weight-light">Competitions</h1>
             <div className="card bg-light">
               <div className="card-body text-center">
                 <form
                   className="formgroup"
                   onSubmit={this.handleSubmit}
                 >
-                  <h3 className="font-weight-light mb-3">Check in</h3>
+                  <h3 className="font-weight-light mb-3">add competition</h3>
                   <section className="form-group">
                     <label
                       className="form-control-label sr-only"
@@ -82,6 +82,7 @@ class AdminCompetitions extends Component {
                       onChange={this.handleChange}
                       required
                     >
+                      <option value="">vs</option>
                       <option value="2vs2">2vs2</option>
                       <option value="3vs3">3vs3</option>
                       <option value="4vs4">4vs4</option>
