@@ -39,6 +39,7 @@ class AdminCompetitions extends Component {
     return (
       <div className="container mt-4">
         <div className="row justify-content-center">
+
           <div className="col-md-8 text-center">
             <h1 className="font-weight-light">Competitions</h1>
             <div className="card bg-light">
