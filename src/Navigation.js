@@ -13,7 +13,7 @@ class Navigation extends Component {
             <FaUsers className="mr-1" /> Beach Please
           </Link>
           <div className="navbar-nav ml-auto">
-              <Link className="nav-item nav-link" to="/competitions">
+              <Link className="nav-item nav-link" to="/search">
                 search
               </Link>
             {user && (

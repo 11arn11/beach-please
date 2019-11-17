@@ -12,7 +12,7 @@ import Home from './route/Home';
 import Login from './route/Login';
 import Register from './route/Register';
 
-import Competitions from './route/Competitions';
+import Search from './route/Search';
 import AdminCompetitions from './route/AdminCompetitions';
 
 class App extends Component {
@@ -118,8 +118,8 @@ class App extends Component {
             path="/register"
             registerUser={this.registerUser}
           />
-          <Competitions
-            path="/competitions"
+          <Search
+            path="/search"
             competitions={this.state.competitions}
           />
           <AdminCompetitions

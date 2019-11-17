@@ -27,7 +27,7 @@ class Home extends Component {
               Con questa app potrai cercare tornei, campionati, gare o competizioni di Beach Volley.
             </p>
 
-            <Link to="/competitions" className="btn btn-primary">
+            <Link to="/search" className="btn btn-primary">
               Cerca un torneo
             </Link>
 

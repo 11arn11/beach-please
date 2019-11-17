@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import { FaUndo } from 'react-icons/fa';
 import CompetitionsList from '../CompetitionsList';
 
-class Competitions extends Component {
+class Search extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -21,7 +20,7 @@ class Competitions extends Component {
   componentDidMount() {
       this.setState({
         allCompetitions: this.props.competitions,
-        displayCompetitions: this.props.competitions
+        displayCompetitions: []
     });
   }
   handleChange(e) {
@@ -34,6 +33,7 @@ class Competitions extends Component {
 
   handleSubmit(e) {
     e.preventDefault();
+    this.setState({ displayCompetitions: this.filter() });
   }
 
   resetQuery() {
@@ -41,7 +41,7 @@ class Competitions extends Component {
       competitionName: '',
       competitionType: '',
       competitionDate: '',
-      displayCompetitions: this.state.allCompetitions,
+      displayCompetitions: [],
     });
   }
 
@@ -77,22 +77,18 @@ class Competitions extends Component {
 
   render() {
 
-    // Filter by name
-    const filteredCompetitions = this.filter()
-
-    
     return (
+
       <div className="container mt-4">
         <div className="row justify-content-center">
-
-        <div className="col-md-8 text-center">
+          <div className="col-md-8 text-center">
             <h1 className="font-weight-light">Competitions</h1>
             <div className="card bg-light">
-              <div className="card-body text-center">
-                <form
-                  className="formgroup"
-                  onSubmit={this.handleSubmit}
-                >
+              <form
+                className="formgroup"
+                onSubmit={this.handleSubmit}
+              >
+                <div className="card-body text-center">
                   <h3 className="font-weight-light mb-3">search</h3>
                   <section className="form-group">
                     <label
@@ -132,7 +128,7 @@ class Competitions extends Component {
                       <option value="4vs4">4vs4</option>
                     </select>
                   </section>
-                  <div className="input-group input-group-lg">
+                  <div className="form-group">
                     <input
                       type="date"
                       className="form-control"
@@ -142,35 +138,35 @@ class Competitions extends Component {
                       value={this.state.competitionDate}
                       onChange={this.handleChange}
                     />
-                    <div className="input-group-append">
-                      <button
-                        className="btn btn-sm btn-outline-info "
-                        title="Reset Search"
-                        onClick={() => this.resetQuery()}
-                      >
-                        <FaUndo />
-                      </button>
-                    </div>
                   </div>
-                </form>
-              </div>
+                  <div className="form-group text-center mb-0">
+                    <button
+                      className="btn btn-primary"
+                      title="Search"
+                      onClick={this.handleSubmit}
+                    >
+                      Cerca
+                    </button>
+                  </div>
+                </div>
+              </form>
             </div>
           </div>
 
           <div className="col-11 col-md-6 text-center">
             <div className="card border-top-0 rounded-0">
-              {filteredCompetitions && filteredCompetitions.length ? (
+              {this.state.displayCompetitions && this.state.displayCompetitions.length ? (
                 <div className="card-body py-2">
                   <h4 className="card-title font-weight-light m-0">
-                    Competitions
+                    Results
                   </h4>
                 </div>
               ) : null}
 
-              {filteredCompetitions && (
+              {this.state.displayCompetitions && (
                 <div className="list-group list-group-flush">
                   <CompetitionsList
-                    competitions={filteredCompetitions}
+                    competitions={this.state.displayCompetitions}
                   />
                 </div>
               )}
@@ -183,4 +179,4 @@ class Competitions extends Component {
   }
 }
 
-export default Competitions;
+export default Search;
