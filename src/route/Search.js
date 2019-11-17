@@ -82,14 +82,13 @@ class Search extends Component {
       <div className="container mt-4">
         <div className="row justify-content-center">
           <div className="col-md-8 text-center">
-            <h1 className="font-weight-light">Competitions</h1>
             <div className="card bg-light">
               <form
                 className="formgroup"
                 onSubmit={this.handleSubmit}
               >
                 <div className="card-body text-center">
-                  <h3 className="font-weight-light mb-3">search</h3>
+                  <h3 className="font-weight-light mb-3">Cerca</h3>
                   <section className="form-group">
                     <label
                       className="form-control-label sr-only"
@@ -122,13 +121,19 @@ class Search extends Component {
                       value={this.state.competitionType}
                       onChange={this.handleChange}
                     >
-                      <option value="">giocatori</option>
+                      <option value="">numero giocatori</option>
                       <option value="2vs2">2vs2</option>
                       <option value="3vs3">3vs3</option>
                       <option value="4vs4">4vs4</option>
                     </select>
                   </section>
                   <div className="form-group">
+                  <label
+                      className="form-control-label sr-only"
+                      htmlFor="competitionType"
+                    >
+                      Data
+                    </label>
                     <input
                       type="date"
                       className="form-control"
